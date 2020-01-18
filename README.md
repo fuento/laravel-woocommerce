@@ -1,5 +1,10 @@
 # Laravel Woocommerce
+
 WooCommerce Rest API for Laravel. You can Get, Create, Update and Delete your woocommerce product using this package easily.
+
+# Fork-Difference
+
+I needed to update the header names to use HTTP2. Therefore `X-WP-Total` and `X-WP-TotalPages` needs to be lowercase, like so `x-wp-total` and `x-wp-totalpages`.
 
 #Install
 
@@ -13,18 +18,20 @@ composer require codexshaper/laravel-woocommerce
 php artisan vendor:publish --tag=woocommerce
 ```
 
-#Add API credentials in your ```.env``` file
+#Add API credentials in your `.env` file
 
 ```
 WOOCOMMERCE_STORE_URL=YOUR_WEBSITE_URL
 WOOCOMMERCE_CONSUMER_KEY=API_CONSUMER_KEY
 WOOCOMMERCE_CONSUMER_SECRET=API_CONSUMER_SECRET
 ```
+
 #Do you need any help to create your own API credentials? Read the officials Doc https://docs.woocommerce.com/document/woocommerce-rest-api/
 
 # Example for Product
 
 #Retrieve Product(s)
+
 ```
 use Codexshaper\WooCommerce\Facades\Product;
 
@@ -38,7 +45,9 @@ public function product( Request $request )
   $product = Product::find($request->id);
 }
 ```
+
 #Create new Product
+
 ```
 // For Simple Product
 $data = [
@@ -167,6 +176,7 @@ $product->categories        = $categories;
 $product->images            = $images;
 $product->save();
 ```
+
 #Update existing Product
 
 ```
@@ -399,6 +409,7 @@ public function customer( Request $request )
   $customer = Customer::find($request->id);
 }
 ```
+
 #Update Customer
 
 ```
@@ -445,13 +456,14 @@ $orders = Order::options(['status' => 'processing', 'orderby' => 'id', 'order' =
 // You can set options by passing an array when call `all` method
 $orders = Order::all(['status' => 'processing', 'orderby' => 'id', 'order' => 'asc']);
 ```
+
 #Product Options: https://woocommerce.github.io/woocommerce-rest-api-docs/#products
 
 #Customer Options: https://woocommerce.github.io/woocommerce-rest-api-docs/#customers
 
 #Order Options: https://woocommerce.github.io/woocommerce-rest-api-docs/#orders
 
-# You can also use ```WooCommerce``` Facade
+# You can also use `WooCommerce` Facade
 
 ```
 use Codexshaper\WooCommerce\Facades\WooCommerce;

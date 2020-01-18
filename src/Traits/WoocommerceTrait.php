@@ -101,7 +101,7 @@ trait WooCommerceTrait
      */
     public function countResults()
     {
-        return (int) $this->getResponse()->getHeaders()['X-WP-Total'];
+        return (int) $this->getResponse()->getHeaders()['x-wp-total'];
     }
 
     /**
@@ -111,7 +111,7 @@ trait WooCommerceTrait
      */
     public function countPages()
     {
-        return (int) $this->getResponse()->getHeaders()['X-WP-TotalPages'];
+        return (int) $this->getResponse()->getHeaders()['x-wp-totalpages'];
     }
 
     /**
